@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
-import {dataBaseContext} from "../App";
+import {dataBaseUsersContext} from "../App";
 import axios from "axios";
 
 const Login = () => {
@@ -9,14 +9,14 @@ const Login = () => {
         password: ''
     })
     const navigate = useNavigate()
-    const {dataBase, setDataBase} = useContext(dataBaseContext)
+    const {dataBaseUsers, setDataBaseUsers} = useContext(dataBaseUsersContext)
     const [error, setError] = useState({})
     const [valid, setValid] = useState(true)
 
     const fetchData = async () => {
         try {
             const response = await axios.get('http://localhost:8000/users');
-            setDataBase(response.data);
+            setDataBaseUsers(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -38,7 +38,7 @@ const Login = () => {
             validationErrors.password = "رمزعبور ضروری"
         }
 
-        if (dataBase.some(item => item.username === formData.username && item.password === formData.password)) {
+        if (dataBaseUsers.some(item => item.username === formData.username && item.password === formData.password)) {
             alert("ورود موفقیت آمیز بود")
             navigate('/')
         } else {

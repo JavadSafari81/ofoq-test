@@ -1,7 +1,7 @@
 import {Link, useNavigate} from 'react-router-dom';
 import {useContext, useEffect, useState} from "react";
 import axios from "axios"
-import {dataBaseContext} from "../App";
+import {dataBaseUsersContext} from "../App";
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const Signup = () => {
         password: '',
         cpassword: ''
     })
-    const {dataBase, setDataBase} = useContext(dataBaseContext)
+    const {dataBaseUsers, setDataBaseUsers} = useContext(dataBaseUsersContext)
 
     const [error, setError] = useState({})
     const [valid, setValid] = useState(true)
@@ -19,7 +19,7 @@ const Signup = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get('http://localhost:8000/users');
-            setDataBase(response.data);
+            setDataBaseUsers(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -35,7 +35,7 @@ const Signup = () => {
         if (formData.username === "" || formData.username === null) {
             isvalid = false;
             validationErrors.username = "نام کاربری ضروری"
-        } else if (dataBase.some(item => item.username === formData.username)) {
+        } else if (dataBaseUsers.some(item => item.username === formData.username)) {
             isvalid = false;
             validationErrors.username = "نام کاربری وجود دارد"
         }
@@ -45,7 +45,7 @@ const Signup = () => {
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
             isvalid = false;
             validationErrors.email = "ایمیل مورد تایید نیست"
-        } else if (dataBase.some(item => item.email === formData.email)) {
+        } else if (dataBaseUsers.some(item => item.email === formData.email)) {
             isvalid = false;
             validationErrors.email = "ایمیل وجود دارد"
         }
