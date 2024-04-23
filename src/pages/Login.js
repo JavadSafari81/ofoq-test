@@ -1,6 +1,5 @@
 import {Link, useNavigate} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
-import {dataBaseUsersContext} from "../App";
+import {useEffect, useState} from "react";
 import axios from "axios";
 
 const Login = () => {
@@ -9,7 +8,7 @@ const Login = () => {
         password: ''
     })
     const navigate = useNavigate()
-    const {dataBaseUsers, setDataBaseUsers} = useContext(dataBaseUsersContext)
+    const [dataBaseUsers, setDataBaseUsers] = useState()
     const [error, setError] = useState({})
     const [valid, setValid] = useState(true)
 
@@ -63,7 +62,7 @@ const Login = () => {
                         placeholder="نام کاربری"
                         onChange={(event) => setFormData({...formData, username: event.target.value})}
                     />
-                    {valid ? <></> : <span className="text-red-600">{error.username}</span>}
+                    {!valid && <span className="text-red-600">{error.username}</span>}
 
                     <input
                         type="password"
@@ -72,8 +71,8 @@ const Login = () => {
                         placeholder="رمز ورود"
                         onChange={(event) => setFormData({...formData, password: event.target.value})}
                     />
-                    {valid ? <></> : <span className="text-red-600">{error.password}</span>}
-                    {valid ? <></> : <span className="text-red-600">{error.userpass}</span>}
+                    {!valid && <span className="text-red-600">{error.password}</span>}
+                    {!valid && <span className="text-red-600">{error.userpass}</span>}
 
 
                     <button

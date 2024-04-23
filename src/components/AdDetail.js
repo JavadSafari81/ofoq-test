@@ -1,17 +1,11 @@
 import Location from "./Location";
-import {useContext, useEffect, useState} from "react";
-import {editAbleContext, mapEditContext} from "../App";
+import {useEffect} from "react";
 
-const AdDetail = ({ad, id, formData, setFormData}) => {
-    const {editAble, setEditAble} = useContext(editAbleContext)
-    const {mapEdit, setMapEdit} = useContext(mapEditContext)
-
+const AdDetail = ({ad, id, formData, setFormData, editAble, mapEdit, setMapEdit}) => {
 
     useEffect(() => {
         editAble ? setMapEdit(true) : setMapEdit(false)
     }, []);
-
-
 
     return (
         <div>

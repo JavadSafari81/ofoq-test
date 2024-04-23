@@ -1,18 +1,14 @@
-import {MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leaflet';
+import {MapContainer, TileLayer, Marker, useMapEvents} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import {icon} from 'https://cdn.esm.sh/leaflet';
 import {useContext, useState, useEffect} from "react";
-import {dataBaseAdsContext, mapEditContext} from "../App";
-import {Link, useLocation} from "react-router-dom";
+import {dataBaseAdsContext} from "../App";
 
 
-const Location = ({formData, setFormData, ID, adLocation}) => {
+const Location = ({formData, setFormData, ID, adLocation, mapEdit}) => {
 
-    const {dataBaseAds, setDataBaseAds} = useContext(dataBaseAdsContext)
-    const {mapEdit, setMapEdit} = useContext(mapEditContext)
-    const location = useLocation();
+    const {dataBaseAds} = useContext(dataBaseAdsContext)
 
-    const {pathname} = location;
 
 
     const customIcon = icon({

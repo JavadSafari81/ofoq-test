@@ -1,7 +1,6 @@
 import {Link, useNavigate} from 'react-router-dom';
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios"
-import {dataBaseUsersContext} from "../App";
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -10,7 +9,7 @@ const Signup = () => {
         password: '',
         cpassword: ''
     })
-    const {dataBaseUsers, setDataBaseUsers} = useContext(dataBaseUsersContext)
+    const [dataBaseUsers, setDataBaseUsers] = useState()
 
     const [error, setError] = useState({})
     const [valid, setValid] = useState(true)
@@ -66,12 +65,16 @@ const Signup = () => {
         setError(validationErrors);
         setValid(isvalid);
         if (Object.keys(validationErrors).length === 0) {
-            axios.post('http://localhost:8000/users', formData)
-                .then(result => {
+
+
+            try {
+                axios.post('http://localhost:8000/users', formData).then(result => {
                     alert("عضوریت با موفقیت انجام شد")
                     navigate('/')
                 })
-                .catch(err => console.log(err))
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         }
     }
     return (

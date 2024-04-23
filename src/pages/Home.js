@@ -1,15 +1,15 @@
 import axios from "axios";
-import {dataBaseAdsContext} from "../App";
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 
 
 const Home = () => {
-    const {dataBaseAds, setDataBaseAds} = useContext(dataBaseAdsContext)
-    const [ads, setAds] = useState([])
+    const [dataBaseAds, setDataBaseAds] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPages, setPostPerPages] = useState(3)
+    const postsPerPages = 3
     const navigate = useNavigate()
+
+
 
 
     const fetchData = async () => {
@@ -46,7 +46,7 @@ const Home = () => {
                             navigate(`/${data.id}`)
                         }}>
                             <div className="image-container rounded shadow-lg" style={{width: "300px"}}>
-                                <img className="w-full"
+                                <img className="w-full" alt="sample"
                                      src='https://modernvillaco.com/wp-content/uploads/2023/09/designing-Villa-1.jpg'
                                      style={{height: "275px"}}/>
                                 <h1 className="flex w-full justify-center items-center">{data.address}</h1>

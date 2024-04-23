@@ -1,4 +1,87 @@
 {
-  "users": [],
-  "ads": []
+  "users": [
+    {
+      "id": "b853",
+      "username": "Javad",
+      "email": "example@gmail.com",
+      "password": "testpass",
+      "cpassword": "testpass"
+    },
+    {
+      "id": "040b",
+      "username": "Erfan",
+      "email": "example1@yahoo.com",
+      "password": "testpass",
+      "cpassword": "testpass"
+    },
+    {
+      "id": "c9bf",
+      "username": "Hossein",
+      "email": "example2@yahoo.com",
+      "password": "testpass",
+      "cpassword": "testpass"
+    }
+  ],
+  "ads": [
+    {
+      "id": "61fd",
+      "pnumber": "09123456789",
+      "address": "خیابان ایران - میدان شهدا",
+      "description": "واحد مبله",
+      "location": [
+        35.69337802414063,
+        51.453244686126716
+      ]
+    },
+    {
+      "id": "ca28",
+      "pnumber": "09123456789",
+      "address": "خیابان ایران - میدان شهدا",
+      "description": "واحد مبله",
+      "location": [
+        35.69041540136975,
+        51.400587558746345
+      ]
+    },
+    {
+      "id": "42ff",
+      "pnumber": "09123456789",
+      "address": "خیابان ایران - میدان شهدا",
+      "description": "واحد مبله",
+      "location": [
+        35.690694241145245,
+        51.40264749526978
+      ]
+    },
+    {
+      "id": "ee4a",
+      "pnumber": "09123456789",
+      "address": "خیابان ایران - میدان شهدا",
+      "description": "واحد مبله",
+      "location": [
+        35.688114936028306,
+        51.39642477035523
+      ]
+    },
+    {
+      "id": "e03f",
+      "pnumber": "09123456789",
+      "address": "خیابان ایران - میدان شهدا",
+      "description": "واحد مبله",
+      "location": [
+        35.690380546329266,
+        51.39698266983032
+      ]
+    },
+    {
+      "id": "ed71",
+      "pnumber": "09123456789",
+      "address": "خیابان ایران - میدان شهدا",
+      "description": "واحد مبله",
+      "location": [
+        35.68839378384561,
+        51.394579410552986
+      ]
+    }
+  ]
 }
