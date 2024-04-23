@@ -24,7 +24,6 @@ function App() {
         } catch (error) {
             console.log('Error fetching data:', error)
         }
-
     }
     useEffect(() => {
         fetchData()

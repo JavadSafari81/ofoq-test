@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import Location from "../components/Location";
+import AdDetailInput from "../components/AdDetailInput";
 
 
 const AdRegister = () => {
@@ -53,6 +54,10 @@ const AdRegister = () => {
             }
         }
     }
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        setFormData({...formData, [name]: value});
+    };
 
     return (
 
@@ -61,32 +66,29 @@ const AdRegister = () => {
                 <form className="bg-white px-6 py-8 rounded shadow-md text-black w-full" dir="rtl"
                       onSubmit={handleSubmit}>
                     <h1 className="mb-8 text-3xl text-center">ثبت آگهی</h1>
-                    <input
+                    <AdDetailInput
                         type="number"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="pnumber"
                         placeholder="شماره موبایل"
-                        onChange={(event) => setFormData({...formData, pnumber: event.target.value})}
+                        onChange={handleChange}
                     />
                     {!valid && <span className="text-red-600">{error.pnumber}</span>}
 
 
-                    <input
+                    <AdDetailInput
                         type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="email"
+                        name="address"
                         placeholder="آدرس"
-                        onChange={(event) => setFormData({...formData, address: event.target.value})}
+                        onChange={handleChange}
                     />
                     {!valid && <span className="text-red-600">{error.address}</span>}
 
 
-                    <input
+                    <AdDetailInput
                         type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="description"
                         placeholder="توضیحات"
-                        onChange={(event) => setFormData({...formData, description: event.target.value})}
+                        onChange={handleChange}
                     />
 
 
